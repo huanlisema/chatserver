@@ -1,7 +1,7 @@
 src/client/CMakeFiles/chatclient.dir/main.cc.o: \
- /home/bina/chat/src/client/main.cc /usr/include/stdc-predef.h \
- /home/bina/chat/thirdparty/json.hpp /usr/include/c++/4.8.2/algorithm \
- /usr/include/c++/4.8.2/utility \
+ /home/bina/chat/chatserver/src/client/main.cc /usr/include/stdc-predef.h \
+ /home/bina/chat/chatserver/thirdparty/json.hpp \
+ /usr/include/c++/4.8.2/algorithm /usr/include/c++/4.8.2/utility \
  /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/c++config.h \
  /usr/include/bits/wordsize.h \
  /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/os_defines.h \
@@ -173,8 +173,8 @@ src/client/CMakeFiles/chatclient.dir/main.cc.o: \
  /usr/include/bits/semaphore.h /usr/include/c++/4.8.2/atomic \
  /usr/include/c++/4.8.2/bits/atomic_base.h \
  /usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/stdbool.h \
- /home/bina/chat/include/server/model/group.hpp \
- /home/bina/chat/include/server/model/groupuser.hpp \
- /home/bina/chat/include/server/model/user.hpp \
- /home/bina/chat/include/server/model/user.hpp \
- /home/bina/chat/include/public.hpp
+ /home/bina/chat/chatserver/include/server/model/group.hpp \
+ /home/bina/chat/chatserver/include/server/model/groupuser.hpp \
+ /home/bina/chat/chatserver/include/server/model/user.hpp \
+ /home/bina/chat/chatserver/include/server/model/user.hpp \
+ /home/bina/chat/chatserver/include/public.hpp

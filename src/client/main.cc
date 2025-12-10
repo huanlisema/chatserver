@@ -135,7 +135,7 @@ int main(int argc, char **argv)
             if (g_isLoginSuccess)
             {
                 // 进入聊天主菜单页面
-                isMainMenuRunning = true;
+                isMainMenuRunning = true;//注销时置为false
                 mainMenu(clientfd);
             }
         }
@@ -266,7 +266,7 @@ void doLoginResponse(json *js)
             for (string &str : vec)
             {
                 json js = json::parse(str);
-                // time + [id] + name + " said: " + xxx
+                // time + [id] + name + " said: " + msg
                 if (ONE_CHAT_MSG == js["msgid"].get<int>())
                 {
                     cout << js["time"].get<string>() << " [" << js["id"] << "]" << js["name"].get<string>()
@@ -300,14 +300,14 @@ void readTaskHandler(int clientfd)
         // 接收ChatServer转发的数据，反序列化生成json数据对象
         json js = json::parse(buffer);
         int msgtype = js["msgid"].get<int>();
-        if (ONE_CHAT_MSG == msgtype)
+        if (ONE_CHAT_MSG == msgtype)//单人聊天
         {
             cout << js["time"].get<string>() << " [" << js["id"] << "]" << js["name"].get<string>()
                  << " said: " << js["msg"].get<string>() << endl;
             continue;
         }
 
-        if (GROUP_CHAT_MSG == msgtype)
+        if (GROUP_CHAT_MSG == msgtype)//群聊天
         {
             cout << "群消息[" << js["groupid"] << "]:" << js["time"].get<string>() << " [" << js["id"] << "]" << js["name"].get<string>()
                  << " said: " << js["msg"].get<string>() << endl;
@@ -318,14 +318,14 @@ void readTaskHandler(int clientfd)
             cout << js["errmsg"] << endl;
             continue;
         }
-        if (LOGIN_MSG_ACK == msgtype)
+        if (LOGIN_MSG_ACK == msgtype)//登入
         {
             doLoginResponse(&js); // 处理登录响应的业务逻辑
             sem_post(&rwsem);     // 通知主线程，登录结果处理完成
             continue;
         }
 
-        if (REG_MSG_ACK == msgtype)
+        if (REG_MSG_ACK == msgtype)//注册
         {
             doRegResponse(&js);
             sem_post(&rwsem); // 通知主线程，注册结果处理完成
@@ -430,7 +430,7 @@ void mainMenu(int clientfd)
     }
 }
 
-// "help" command handler
+// "help"命令处理函数
 void help(int, string)
 {
     cout << "show command list >>> " << endl;
@@ -440,7 +440,7 @@ void help(int, string)
     }
     cout << endl;
 }
-// "addfriend" command handler
+// "addfriend"命令处理函数
 void addfriend(int clientfd, string str)
 {
     int friendid = atoi(str.c_str());
@@ -456,10 +456,10 @@ void addfriend(int clientfd, string str)
         cerr << "send addfriend msg error -> " << buffer << endl;
     }
 }
-// "chat" command handler
+// "chat"命令处理函数
 void chat(int clientfd, string str)
 {
-    int idx = str.find(":"); // friendid:message
+    int idx = str.find(":"); // str格式: friendid:message
     if (-1 == idx)
     {
         cerr << "chat command invalid!" << endl;
@@ -484,10 +484,10 @@ void chat(int clientfd, string str)
         cerr << "send chat msg error -> " << buffer << endl;
     }
 }
-// "creategroup" command handler  groupname:groupdesc
+// "creategroup"命令处理函数  
 void creategroup(int clientfd, string str)
 {
-    int idx = str.find(":");
+    int idx = str.find(":");//格式: groupname:groupdesc
     if (-1 == idx)
     {
         cerr << "creategroup command invalid!" << endl;
@@ -511,7 +511,7 @@ void creategroup(int clientfd, string str)
     }
    
 }
-// "addgroup" command handler
+// "addgroup"命令处理函数
 void addgroup(int clientfd, string str)
 {
     int groupid = atoi(str.c_str());
@@ -527,10 +527,10 @@ void addgroup(int clientfd, string str)
         cerr << "send addgroup msg error -> " << buffer << endl;
     }
 }
-// "groupchat" command handler   groupid:message
+// "groupchat"命令处理函数   
 void groupchat(int clientfd, string str)
 {
-    int idx = str.find(":");
+    int idx = str.find(":");//格式: groupid:message
     if (-1 == idx)
     {
         cerr << "groupchat command invalid!" << endl;
@@ -554,7 +554,7 @@ void groupchat(int clientfd, string str)
         cerr << "send groupchat msg error -> " << buffer << endl;
     }
 }
-// "loginout" command handler
+// "loginout"命令处理函数 
 void loginout(int clientfd, string)
 {
     json js;

@@ -1,8 +1,8 @@
 src/server/CMakeFiles/chatserver.dir/model/friendmodel.cc.o: \
- /home/bina/chat/src/server/model/friendmodel.cc \
+ /home/bina/chat/chatserver/src/server/model/friendmodel.cc \
  /usr/include/stdc-predef.h \
- /home/bina/chat/include/server/model/friendmodel.hpp \
- /home/bina/chat/include/server/model/user.hpp \
+ /home/bina/chat/chatserver/include/server/model/friendmodel.hpp \
+ /home/bina/chat/chatserver/include/server/model/user.hpp \
  /usr/include/c++/4.8.2/string \
  /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/c++config.h \
  /usr/include/bits/wordsize.h \
@@ -89,11 +89,11 @@ src/server/CMakeFiles/chatserver.dir/model/friendmodel.cc.o: \
  /usr/include/c++/4.8.2/bits/stl_vector.h \
  /usr/include/c++/4.8.2/bits/stl_bvector.h \
  /usr/include/c++/4.8.2/bits/vector.tcc \
- /home/bina/chat/include/server/db/db.h /usr/include/mysql/mysql.h \
- /usr/include/mysql/mysql_version.h /usr/include/mysql/mysql_com.h \
- /usr/include/mysql/binary_log_types.h /usr/include/mysql/my_command.h \
- /usr/include/mysql/mysql_time.h /usr/include/mysql/my_list.h \
- /usr/include/mysql/mysql/client_plugin.h \
+ /home/bina/chat/chatserver/include/server/db/db.h \
+ /usr/include/mysql/mysql.h /usr/include/mysql/mysql_version.h \
+ /usr/include/mysql/mysql_com.h /usr/include/mysql/binary_log_types.h \
+ /usr/include/mysql/my_command.h /usr/include/mysql/mysql_time.h \
+ /usr/include/mysql/my_list.h /usr/include/mysql/mysql/client_plugin.h \
  /usr/include/mysql/mysql/plugin_auth_common.h \
  /usr/include/mysql/typelib.h /usr/include/mysql/my_alloc.h \
  /usr/include/mysql/mysql/psi/psi_memory.h \

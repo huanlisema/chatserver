@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/bina/chat/src/client/main.cc" "src/client/CMakeFiles/chatclient.dir/main.cc.o" "gcc" "src/client/CMakeFiles/chatclient.dir/main.cc.o.d"
+  "/home/bina/chat/chatserver/src/client/main.cc" "src/client/CMakeFiles/chatclient.dir/main.cc.o" "gcc" "src/client/CMakeFiles/chatclient.dir/main.cc.o.d"
   )
 
 # Targets to which this target links.

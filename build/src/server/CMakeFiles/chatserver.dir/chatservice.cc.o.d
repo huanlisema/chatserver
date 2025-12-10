@@ -1,6 +1,7 @@
 src/server/CMakeFiles/chatserver.dir/chatservice.cc.o: \
- /home/bina/chat/src/server/chatservice.cc /usr/include/stdc-predef.h \
- /home/bina/chat/include/server/chatservice.hpp \
+ /home/bina/chat/chatserver/src/server/chatservice.cc \
+ /usr/include/stdc-predef.h \
+ /home/bina/chat/chatserver/include/server/chatservice.hpp \
  /usr/include/c++/4.8.2/functional \
  /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/c++config.h \
  /usr/include/bits/wordsize.h \
@@ -237,8 +238,9 @@ src/server/CMakeFiles/chatserver.dir/chatservice.cc.o: \
  /usr/include/c++/4.8.2/ratio /usr/include/c++/4.8.2/ctime \
  /usr/include/c++/4.8.2/system_error \
  /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/error_constants.h \
- /home/bina/chat/thirdparty/json.hpp /usr/include/c++/4.8.2/cassert \
- /usr/include/c++/4.8.2/ciso646 /usr/include/c++/4.8.2/forward_list \
+ /home/bina/chat/chatserver/thirdparty/json.hpp \
+ /usr/include/c++/4.8.2/cassert /usr/include/c++/4.8.2/ciso646 \
+ /usr/include/c++/4.8.2/forward_list \
  /usr/include/c++/4.8.2/bits/forward_list.h \
  /usr/include/c++/4.8.2/bits/forward_list.tcc /usr/include/c++/4.8.2/map \
  /usr/include/c++/4.8.2/bits/stl_tree.h \
@@ -254,18 +256,18 @@ src/server/CMakeFiles/chatserver.dir/chatservice.cc.o: \
  /usr/include/c++/4.8.2/bits/gslice_array.h \
  /usr/include/c++/4.8.2/bits/mask_array.h \
  /usr/include/c++/4.8.2/bits/indirect_array.h \
- /home/bina/chat/include/server/model/usermodel.hpp \
- /home/bina/chat/include/server/model/user.hpp \
- /home/bina/chat/include/server/model/offlinemessagemodel.hpp \
- /home/bina/chat/include/server/model/friendmodel.hpp \
- /home/bina/chat/include/server/model/groupmodel.hpp \
- /home/bina/chat/include/server/model/group.hpp \
- /home/bina/chat/include/server/model/groupuser.hpp \
- /home/bina/chat/include/server/redis/redis.hpp \
+ /home/bina/chat/chatserver/include/server/model/usermodel.hpp \
+ /home/bina/chat/chatserver/include/server/model/user.hpp \
+ /home/bina/chat/chatserver/include/server/model/offlinemessagemodel.hpp \
+ /home/bina/chat/chatserver/include/server/model/friendmodel.hpp \
+ /home/bina/chat/chatserver/include/server/model/groupmodel.hpp \
+ /home/bina/chat/chatserver/include/server/model/group.hpp \
+ /home/bina/chat/chatserver/include/server/model/groupuser.hpp \
+ /home/bina/chat/chatserver/include/server/redis/redis.hpp \
  /usr/local/include/hiredis/hiredis.h /usr/local/include/hiredis/read.h \
  /usr/include/sys/time.h /usr/local/include/hiredis/sds.h \
  /usr/local/include/hiredis/alloc.h /usr/include/c++/4.8.2/thread \
- /home/bina/chat/include/public.hpp \
+ /home/bina/chat/chatserver/include/public.hpp \
  /usr/local/include/muduo/base/Logging.h \
  /usr/local/include/muduo/base/LogStream.h \
  /usr/include/c++/4.8.2/iostream
