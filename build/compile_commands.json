@@ -1,0 +1,52 @@
+[
+{
+  "directory": "/home/bina/chat/build/src/server",
+  "command": "/usr/bin/g++  -I/home/bina/chat/include -I/home/bina/chat/include/server -I/home/bina/chat/include/server/db -I/home/bina/chat/include/server/model -I/home/bina/chat/include/server/redis -I/home/bina/chat/thirdparty -g -g -std=gnu++11 -o CMakeFiles/chatserver.dir/chatserver.cc.o -c /home/bina/chat/src/server/chatserver.cc",
+  "file": "/home/bina/chat/src/server/chatserver.cc"
+},
+{
+  "directory": "/home/bina/chat/build/src/server",
+  "command": "/usr/bin/g++  -I/home/bina/chat/include -I/home/bina/chat/include/server -I/home/bina/chat/include/server/db -I/home/bina/chat/include/server/model -I/home/bina/chat/include/server/redis -I/home/bina/chat/thirdparty -g -g -std=gnu++11 -o CMakeFiles/chatserver.dir/chatservice.cc.o -c /home/bina/chat/src/server/chatservice.cc",
+  "file": "/home/bina/chat/src/server/chatservice.cc"
+},
+{
+  "directory": "/home/bina/chat/build/src/server",
+  "command": "/usr/bin/g++  -I/home/bina/chat/include -I/home/bina/chat/include/server -I/home/bina/chat/include/server/db -I/home/bina/chat/include/server/model -I/home/bina/chat/include/server/redis -I/home/bina/chat/thirdparty -g -g -std=gnu++11 -o CMakeFiles/chatserver.dir/main.cc.o -c /home/bina/chat/src/server/main.cc",
+  "file": "/home/bina/chat/src/server/main.cc"
+},
+{
+  "directory": "/home/bina/chat/build/src/server",
+  "command": "/usr/bin/g++  -I/home/bina/chat/include -I/home/bina/chat/include/server -I/home/bina/chat/include/server/db -I/home/bina/chat/include/server/model -I/home/bina/chat/include/server/redis -I/home/bina/chat/thirdparty -g -g -std=gnu++11 -o CMakeFiles/chatserver.dir/db/db.cc.o -c /home/bina/chat/src/server/db/db.cc",
+  "file": "/home/bina/chat/src/server/db/db.cc"
+},
+{
+  "directory": "/home/bina/chat/build/src/server",
+  "command": "/usr/bin/g++  -I/home/bina/chat/include -I/home/bina/chat/include/server -I/home/bina/chat/include/server/db -I/home/bina/chat/include/server/model -I/home/bina/chat/include/server/redis -I/home/bina/chat/thirdparty -g -g -std=gnu++11 -o CMakeFiles/chatserver.dir/model/friendmodel.cc.o -c /home/bina/chat/src/server/model/friendmodel.cc",
+  "file": "/home/bina/chat/src/server/model/friendmodel.cc"
+},
+{
+  "directory": "/home/bina/chat/build/src/server",
+  "command": "/usr/bin/g++  -I/home/bina/chat/include -I/home/bina/chat/include/server -I/home/bina/chat/include/server/db -I/home/bina/chat/include/server/model -I/home/bina/chat/include/server/redis -I/home/bina/chat/thirdparty -g -g -std=gnu++11 -o CMakeFiles/chatserver.dir/model/groupmodel.cc.o -c /home/bina/chat/src/server/model/groupmodel.cc",
+  "file": "/home/bina/chat/src/server/model/groupmodel.cc"
+},
+{
+  "directory": "/home/bina/chat/build/src/server",
+  "command": "/usr/bin/g++  -I/home/bina/chat/include -I/home/bina/chat/include/server -I/home/bina/chat/include/server/db -I/home/bina/chat/include/server/model -I/home/bina/chat/include/server/redis -I/home/bina/chat/thirdparty -g -g -std=gnu++11 -o CMakeFiles/chatserver.dir/model/offlinemessagemodel.cc.o -c /home/bina/chat/src/server/model/offlinemessagemodel.cc",
+  "file": "/home/bina/chat/src/server/model/offlinemessagemodel.cc"
+},
+{
+  "directory": "/home/bina/chat/build/src/server",
+  "command": "/usr/bin/g++  -I/home/bina/chat/include -I/home/bina/chat/include/server -I/home/bina/chat/include/server/db -I/home/bina/chat/include/server/model -I/home/bina/chat/include/server/redis -I/home/bina/chat/thirdparty -g -g -std=gnu++11 -o CMakeFiles/chatserver.dir/model/usermodel.cc.o -c /home/bina/chat/src/server/model/usermodel.cc",
+  "file": "/home/bina/chat/src/server/model/usermodel.cc"
+},
+{
+  "directory": "/home/bina/chat/build/src/server",
+  "command": "/usr/bin/g++  -I/home/bina/chat/include -I/home/bina/chat/include/server -I/home/bina/chat/include/server/db -I/home/bina/chat/include/server/model -I/home/bina/chat/include/server/redis -I/home/bina/chat/thirdparty -g -g -std=gnu++11 -o CMakeFiles/chatserver.dir/redis/redis.cc.o -c /home/bina/chat/src/server/redis/redis.cc",
+  "file": "/home/bina/chat/src/server/redis/redis.cc"
+},
+{
+  "directory": "/home/bina/chat/build/src/client",
+  "command": "/usr/bin/g++  -I/home/bina/chat/include -I/home/bina/chat/include/server -I/home/bina/chat/include/server/db -I/home/bina/chat/include/server/model -I/home/bina/chat/include/server/redis -I/home/bina/chat/thirdparty -g -g -std=gnu++11 -o CMakeFiles/chatclient.dir/main.cc.o -c /home/bina/chat/src/client/main.cc",
+  "file": "/home/bina/chat/src/client/main.cc"
+}
+]
