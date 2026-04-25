@@ -37,32 +37,39 @@ void ChatServer::onConnection(const TcpConnectionPtr &conn)
 // 读写回调
 void ChatServer::onMessage(const TcpConnectionPtr &conn, Buffer *buffer, Timestamp time)
 {
-    // 循环处理 buffer 中的所有完整消息
-    while (buffer->readableBytes() > 0)
-    {
-        // 1. 查找消息结束符 \0
-        const char *end = (const char *)memchr(buffer->peek(), '\0', buffer->readableBytes());
 
-        // 2. 没找到 \0，说明还没收到完整消息，等下次
+while (buffer->readableBytes() > 0)
+    {
+        const char* end = (const char*)memchr(buffer->peek(), '\0', buffer->readableBytes());
         if (end == nullptr)
         {
             break;
         }
-
-        // 3. 取出完整消息（不包含 \0）
+        
         int msgLen = end - buffer->peek();
         string msg(buffer->peek(), msgLen);
-
-        // 4. 从 buffer 中移除这条消息（包括 \0）
         buffer->retrieve(msgLen + 1);
-
-        // 5. 解析并处理消息
-        if (!msg.empty())
+        
+        if (msg.empty())
+        {
+            continue;
+        }
+        
+        try
         {
             json js = json::parse(msg);
             int msgid = js["msgid"].get<int>();
             auto msgHandler = ChatService::instance()->getHandler(msgid);
             msgHandler(conn, &js, time);
         }
+        catch (const std::exception& e)
+        {
+            cerr << "JSON parse error: " << e.what() << endl;
+        }
     }
+    // string buff = buffer->retrieveAllAsString();
+    // json js = json::parse(buff); // 反序列化解析
+    // auto msgHandler = ChatService::instance()->getHandler(js["msgid"].get<int>());
+    // // 调用业务码回调函数
+    // msgHandler(conn, &js, time);
 }
