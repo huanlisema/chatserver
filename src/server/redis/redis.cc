@@ -115,17 +115,71 @@ void Redis::observer_channel_message()
     redisReply *reply = nullptr;
     while (REDIS_OK == redisGetReply(this->_subcribe_context, (void **)&reply))
     {
-        // 订阅收到的消息是一个带三元素的数组
-        if (reply != nullptr && reply->element[2] != nullptr && reply->element[2]->str != nullptr)
+        // 1. 检查 reply 是否有效
+        if (reply == nullptr)
         {
-            // 给业务层上报通道上发生的消息
-            _notify_message_handler(atoi(reply->element[1]->str) , reply->element[2]->str);
+            cerr << "observer_channel_message: reply is nullptr" << endl;
+            continue;
         }
-
+        
+        // 2. 检查消息类型是否是数组
+        if (reply->type != REDIS_REPLY_ARRAY)
+        {
+            cerr << "observer_channel_message: reply type is not array, type=" << reply->type << endl;
+            freeReplyObject(reply);
+            continue;
+        }
+        
+        // 3. 检查元素个数（订阅消息必须是 3 个元素）
+        if (reply->elements < 3)
+        {
+            cerr << "observer_channel_message: reply elements < 3, elements=" << reply->elements << endl;
+            freeReplyObject(reply);
+            continue;
+        }
+        
+        // 4. 检查 element[1] 和 element[2] 是否有效
+        if (reply->element[1] == nullptr || reply->element[2] == nullptr)
+        {
+            cerr << "observer_channel_message: element[1] or element[2] is nullptr" << endl;
+            freeReplyObject(reply);
+            continue;
+        }
+        
+        if (reply->element[1]->str == nullptr || reply->element[2]->str == nullptr)
+        {
+            cerr << "observer_channel_message: element[1]->str or element[2]->str is nullptr" << endl;
+            freeReplyObject(reply);
+            continue;
+        }
+        
+        // 5. 安全处理消息
+        int channel = atoi(reply->element[1]->str);
+        string message = reply->element[2]->str;
+        
+        if (_notify_message_handler)
+        {
+            _notify_message_handler(channel, message);
+        }
+        
         freeReplyObject(reply);
     }
-
+    
     cerr << ">>>>>>>>>>>>> observer_channel_message quit <<<<<<<<<<<<<" << endl;
+    // redisReply *reply = nullptr;
+    // while (REDIS_OK == redisGetReply(this->_subcribe_context, (void **)&reply))
+    // {
+    //     // 订阅收到的消息是一个带三元素的数组
+    //     if (reply != nullptr&&reply->element != nullptr && reply->element[2] != nullptr && reply->element[2]->str != nullptr)
+    //     {
+    //         // 给业务层上报通道上发生的消息
+    //         _notify_message_handler(atoi(reply->element[1]->str) , reply->element[2]->str);
+    //     }
+
+    //     freeReplyObject(reply);
+    // }
+
+    // cerr << ">>>>>>>>>>>>> observer_channel_message quit <<<<<<<<<<<<<" << endl;
 }
 
 void Redis::init_notify_handler(function<void(int,string)> fn)
