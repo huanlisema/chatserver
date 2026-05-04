@@ -27,8 +27,9 @@ bool MySQL::connect()
                                   password.c_str(), dbname.c_str(), 3306, nullptr, 0);
     if (p != nullptr)
     {
-        // C和C++代码默认的编码字符是ASCII，如果不设置，从MySQL上拉下来的中文显示？
-        mysql_query(_conn, "set names gbk");
+        // 设置连接字符集为utf8模式(默认是latinl)
+        // mysql_query(_conn, "set names gbk");
+        mysql_set_character_set(_conn,"utf8");
         LOG_INFO << "connect mysql success!";
     }
     else
